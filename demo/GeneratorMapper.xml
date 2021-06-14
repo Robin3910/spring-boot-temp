@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--指向连接数据库的 JDBC 驱动包所在位置，指定到你本机的完整路径-->
+    <classPathEntry location="E:\mysql-8.0.25-winx64\mysql-connector-java-5.1.49.jar"/>
+    <!--配置table表信息内容体，targetRuntime 指定采用MyBatis3的版本-->
+    <context id="tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--配置数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/robin"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="com.example.demo.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="com.example.demo.mapper"
+                         targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--生成Mybatis的Mapper接口类文件，targetPackage指定Mapper接口类的名-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.example.demo.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--数据库表名及对应的Java模型类名-->
+        <table tableName="runoob_tbl" domainObjectName="Runoob"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+    </context>
+</generatorConfiguration>
