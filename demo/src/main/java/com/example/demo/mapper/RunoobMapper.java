@@ -1,9 +1,9 @@
 package com.example.demo.mapper;
 
 import com.example.demo.model.Runoob;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+import java.util.List;
+
 public interface RunoobMapper {
     int deleteByPrimaryKey(Integer runoobId);
 
@@ -12,6 +12,8 @@ public interface RunoobMapper {
     int insertSelective(Runoob record);
 
     Runoob selectByPrimaryKey(Integer runoobId);
+
+    List<Runoob> selectAll();
 
     int updateByPrimaryKeySelective(Runoob record);
 

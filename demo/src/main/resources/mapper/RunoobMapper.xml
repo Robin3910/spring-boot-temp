@@ -16,6 +16,11 @@
     from runoob_tbl
     where runoob_id = #{runoobId,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from runoob_tbl
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from runoob_tbl
     where runoob_id = #{runoobId,jdbcType=INTEGER}
